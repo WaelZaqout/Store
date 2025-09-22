@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إطلالة - حقيبة تومي هيلفيغر</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Latest Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+
+</head>
+
+<body>
+    <div class="loading-screen">
+        <div class="loading-logo font-playfair">إطلالة</div>
+        <div class="loading-progress">
+            <div class="loading-bar"></div>
+        </div>
+        <div class="loading-text">جارٍ تحميل التجربة</div>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h1 class="font-playfair" style="font-size: 1.875rem; font-weight: 700; color: var(--black);">إطلالة</h1>
+            <button class="mobile-menu-close"
+                style="background: none; border: none; color: var(--black); font-size: 1.875rem;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+            <div style="position: relative; margin-bottom: 1rem;">
+                <input type="text" placeholder="البحث عن مصمم أو منتج"
+                    style="width: 100%; padding: 0.75rem 2.5rem 0.75rem 1rem; background: var(--white); color: var(--black); border-radius: 2rem; border: 1px solid var(--gray-300); font-size: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <i class="fas fa-search"
+                    style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--gray-500);"></i>
+            </div>
+        </div>
+
+        <!-- القوائم (Accordion) -->
+        <div style="margin-bottom: 2rem;">
+            <h3 style="color: var(--black); font-weight: 600; font-size: 1.125rem; margin-bottom: 1rem;">الفئات</h3>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+
+                <details>
+                    <summary
+                        style="cursor:pointer; padding:0.75rem; border-radius:0.5rem; color:var(--gray-700); font-weight:500;">
+                        ما وصل حديثا</summary>
+                    <div style="padding:0.5rem 1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                        <a href="#">الوافدات الجديدات للنساء</a>
+                        <a href="#">الوافدات الجديدات للرجال</a>
+                        <a href="#">الوافدات الجديدات للأطفال</a>
+                        <a href="#">الرائج الآن</a>
+                        <a href="#">الإطلاقات الحصرية</a>
+                    </div>
+                </details>
+
+                <details>
+                    <summary
+                        style="cursor:pointer; padding:0.75rem; border-radius:0.5rem; color:var(--gray-700); font-weight:500;">
+                        المصممون</summary>
+                    <div style="padding:0.5rem 1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                        <a href="#">المصممون من أ إلى ي</a>
+                        <a href="#">المصممون الجدد</a>
+                        <a href="#">برادا</a>
+                        <a href="#">غوتشي</a>
+                        <a href="#">بالنسياغا</a>
+                        <a href="#">فالنتينو</a>
+                    </div>
+                </details>
+
+                <details>
+                    <summary
+                        style="cursor:pointer; padding:0.75rem; border-radius:0.5rem; color:var(--gray-700); font-weight:500;">
+                        الملابس</summary>
+                    <div style="padding:0.5rem 1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                        <a href="#">الفساتين</a>
+                        <a href="#">القمصان</a>
+                        <a href="#">السراويل</a>
+                        <a href="#">الملابس الخارجية</a>
+                        <a href="#">مجموعات المصممين</a>
+                    </div>
+                </details>
+
+                <details>
+                    <summary
+                        style="cursor:pointer; padding:0.75rem; border-radius:0.5rem; color:var(--gray-700); font-weight:500;">
+                        الأحذية</summary>
+                    <div style="padding:0.5rem 1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                        <a href="#">الكعب العالي</a>
+                        <a href="#">الأحذية المسطحة</a>
+                        <a href="#">الأحذية الطويلة</a>
+                        <a href="#">الصنادل</a>
+                        <a href="#">أحذية المصممين</a>
+                    </div>
+                </details>
+
+                <details>
+                    <summary
+                        style="cursor:pointer; padding:0.75rem; border-radius:0.5rem; color:var(--gray-700); font-weight:500;">
+                        الأحذية الرياضية</summary>
+                    <div style="padding:0.5rem 1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                        <a href="#">الأحذية المنخفضة</a>
+                        <a href="#">الأحذية العالية</a>
+                        <a href="#">الأحذية الرياضية للمصممين</a>
+                        <a href="#">نايكي</a>
+                        <a href="#">أديداس</a>
+                        <a href="#">نيو بالانس</a>
+                    </div>
+                </details>
+
+                <details>
+                    <summary
+                        style="cursor:pointer; padding:0.75rem; border-radius:0.5rem; color:var(--gray-700); font-weight:500;">
+                        الإكسسوارات</summary>
+                    <div style="padding:0.5rem 1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                        <a href="#">المجوهرات</a>
+                        <a href="#">الأحزمة</a>
+                        <a href="#">القبعات والقفازات</a>
+                        <a href="#">النظارات الشمسية</a>
+                        <a href="#">إكسسوارات المصممين</a>
+                    </div>
+                </details>
+
+                <details>
+                    <summary
+                        style="cursor:pointer; padding:0.75rem; border-radius:0.5rem; color:var(--gray-700); font-weight:500;">
+                        العناية الشخصية</summary>
+                    <div style="padding:0.5rem 1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                        <a href="#">العطور</a>
+                        <a href="#">عناية البشرة</a>
+                        <a href="#">عناية الشعر</a>
+                        <a href="#">عناية الجسم</a>
+                        <a href="#">العلامات الفاخرة</a>
+                    </div>
+                </details>
+
+                <details>
+                    <summary
+                        style="cursor:pointer; padding:0.75rem; border-radius:0.5rem; color:var(--secondary); font-weight:600;">
+                        تخفيضات</summary>
+                    <div style="padding:0.5rem 1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                        <a href="#">تخفيضات النساء</a>
+                        <a href="#">تخفيضات الرجال</a>
+                        <a href="#">تخفيضات الأطفال</a>
+                        <a href="#">خصم يصل إلى 50%</a>
+                        <a href="#">التخفيض النهائي</a>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+
+        <!-- الحساب + باقي الخيارات كما هي -->
+        <div style="margin-bottom: 2rem;">
+            <h3 style="color: var(--black); font-weight: 600; font-size: 1.125rem; margin-bottom: 1rem;">الحساب</h3>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <a href="profile.html"><i class="fas fa-user"></i> الحساب</a>
+                <a href="#"><i class="fas fa-heart"></i> قائمة الرغبات (0)</a>
+                <a href="#"><i class="fas fa-shopping-bag"></i> الحقيبة (0)</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="desktop-nav">
+                <a href="women.html" class="btn-nav ">نساء</a>
+                <a href="man.html" class="btn-nav">رجال</a>
+                <a href="kids.html" class="btn-nav ">أطفال</a>
+            </div>
+
+            <div class="header-top-right">
+                <div class="country-dot"></div>
+                <select class="desktop-country">
+                    <option>Egypt</option>
+                    <option>Saudi Arabia</option>
+                    <option>UAE</option>
+                </select>
+                <a href="#" class="desktop-lang">العربية</a>
+            </div>
+        </div>
+
+        <div class="header-container">
+
+            <div class="header-middle">
+                <div class="search-container">
+                    <input type="text" placeholder="البحث عن مصمم أو منتج">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <div class="logo">
+                    <h1 class="font-playfair"><a href="index.html">إطلالة</a></h1>
+                    <p>الموطن النهائي للفخامة</p>
+                </div>
+                <div class="header-actions">
+                    <a href="profile.html" class="header-action">
+                        <i class="fas fa-user"></i>
+                        <span>الحساب</span>
+                    </a>
+                    <a href="#" class="header-action">
+                        <i class="fas fa-heart"></i>
+                        <span>قائمة الرغبات (0)</span>
+                    </a>
+                    <a href="#" class="header-action">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>الحقيبة (0)</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="desktop-nav-main">
+                <nav class="main-nav">
+                    <div class="nav-item">
+                        <a href="new.html" class="nav-link">ما وصل حديثا</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">الوافدات الجديدات للنساء</a>
+                            <a href="#" class="dropdown-item">الوافدات الجديدات للرجال</a>
+                            <a href="#" class="dropdown-item">الوافدات الجديدات للأطفال</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">الرائج الآن</a>
+                            <a href="#" class="dropdown-item">الإطلاقات الحصرية</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">المصممون</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">المصممون من أ إلى ي</a>
+                            <a href="#" class="dropdown-item">المصممون الجدد</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">برادا</a>
+                            <a href="#" class="dropdown-item">غوتشي</a>
+                            <a href="#" class="dropdown-item">بالنسياغا</a>
+                            <a href="#" class="dropdown-item">فالنتينو</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">الملابس</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">الفساتين</a>
+                            <a href="#" class="dropdown-item">القمصان</a>
+                            <a href="#" class="dropdown-item">السراويل</a>
+                            <a href="#" class="dropdown-item">الملابس الخارجية</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">مجموعات المصممين</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">الأحذية</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">الكعب العالي</a>
+                            <a href="#" class="dropdown-item">الأحذية المسطحة</a>
+                            <a href="#" class="dropdown-item">الأحذية الطويلة</a>
+                            <a href="#" class="dropdown-item">الصنادل</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">أحذية المصممين</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">الأحذية الرياضية</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">الأحذية المنخفضة</a>
+                            <a href="#" class="dropdown-item">الأحذية العالية</a>
+                            <a href="#" class="dropdown-item">الأحذية الرياضية للمصممين</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">نايكي</a>
+                            <a href="#" class="dropdown-item">أديداس</a>
+                            <a href="#" class="dropdown-item">نيو بالانس</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">الإكسسوارات</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">المجوهرات</a>
+                            <a href="#" class="dropdown-item">الأحزمة</a>
+                            <a href="#" class="dropdown-item">القبعات والقفازات</a>
+                            <a href="#" class="dropdown-item">النظارات الشمسية</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">إكسسوارات المصممين</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">العناية الشخصية</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">العطور</a>
+                            <a href="#" class="dropdown-item">عناية البشرة</a>
+                            <a href="#" class="dropdown-item">عناية الشعر</a>
+                            <a href="#" class="dropdown-item">عناية الجسم</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">العلامات الفاخرة</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link sale">تخفيضات</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">تخفيضات النساء</a>
+                            <a href="#" class="dropdown-item">تخفيضات الرجال</a>
+                            <a href="#" class="dropdown-item">تخفيضات الأطفال</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">خصم يصل إلى 50%</a>
+                            <a href="#" class="dropdown-item">التخفيض النهائي</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="header-bottom">
+                <div class="header-bottom-content">
+                    <div class="header-bottom-item">
+                        <i class="fas fa-truck"></i>
+                        <span>شحن مجاني* وإرجاع سلس*</span>
+                    </div>
+                    <div class="header-bottom-item">
+                        <i class="fas fa-gift"></i>
+                        <span>تغليف هدايا مجاني</span>
+                    </div>
+                    <div class="header-bottom-item">
+                        <i class="fab fa-apple-pay"></i>
+                        <span>ادفع بسهولة مع Apple Pay</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="#">رجال</a> ›
+            <a href="#">إكسسوارات</a> ›
+            <a href="#">حقائب</a> ›
+            <span>حقيبة تومي هيلفيغر الكاجوال</span>
+        </div>
+    </div>
+
+    <!-- Product Page -->
+    <main class="container">
+        <div class="product-page">
+            <div class="product-images">
+                <div class="thumbnails">
+                    <div class="thumbnail animate-fade-in">
+                        <img src="img/prod1.jpg" alt="Thumbnail 1">
+                    </div>
+                    <div class="thumbnail animate-fade-in">
+                        <img src="img/prod1-1.jpg" alt="Thumbnail 2">
+                    </div>
+                    <div class="thumbnail animate-fade-in">
+                        <img src="img/prod2.jpg" alt="Thumbnail 3">
+                    </div>
+                    <div class="thumbnail animate-fade-in">
+                        <img src="img/prod3.jpg" alt="Thumbnail 4">
+                    </div>
+
+                </div>
+
+                <div class="main-image-container">
+                    <img src="img/prod1.jpg" alt="Main Image" class="main-image">
+                    <div class="image-controls">
+                        <div class="image-control">‹</div>
+                        <div class="image-control">›</div>
+                    </div>
+                </div>
+
+                <!-- Image Modal -->
+                <div id="imageModal" class="image-modal">
+                    <span class="close-modal">&times;</span>
+                    <img class="modal-content" id="modalImage">
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h1 class="product-title">تومي هيلفيغر</h1>
+                <h2 class="product-name">حقيبة تومي هيلفيغر الكاجوال من القماش</h2>
+
+                <div class="price">
+                    <span class="original-price">1,300 ريال</span>
+                    <span>650 ريال</span>
+                    <span class="discount">خصم 50%</span>
+                </div>
+
+                <div class="installments">
+                    أقساط بدون فوائد متاحة.
+                </div>
+
+                <div class="payment-options">
+                    <div class="payment-option">
+                        <img src="https://placehold.co/40x15/000/fff?text=temara" alt="Temara">
+                        <span>①</span>
+                    </div>
+                    <div class="payment-option">
+                        <img src="https://placehold.co/40x15/000/fff?text=tcbby" alt="Tcbby">
+                        <span>①</span>
+                    </div>
+                </div>
+
+                <div class="points">
+                    <div class="points-badge">أمبر</div>
+                    <span>اكسب 565 نقطة أمبر</span>
+                    <span>؟</span>
+                </div>
+
+                <div class="price-match">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                    <span>نقدم مطابقة الأسعار</span>
+                    <a href="#" style="color: #d37c5e;">اعرف المزيد</a>
+                </div>
+
+                <div class="delivery">
+                    <div class="delivery-icon">🚚</div>
+                    <div>
+                        <strong>توصيل سريع</strong><br>
+                        توصيل خلال 3 ساعات ونفس اليوم إلى <strong>الرياض</strong>
+                        <a href="#" style="color: #d37c5e;">اختر المدينة</a>
+                    </div>
+                </div>
+
+                <div class="stock-alert">
+                    ⚠️ مخزون منخفض: متبقي قطعة واحدة فقط.
+                </div>
+
+                <div class="add-to-bag-container">
+                    <button class="add-to-bag">أضف إلى الحقيبة</button>
+                    <div class="heart-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 18.33l8.84-8.84a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <div class="tab active">نصيحة المحرر</div>
+                    <div class="tab">تفاصيل التصميم</div>
+                    <div class="tab">المقاس والملاءمة</div>
+                    <div class="tab">التوصيل والإرجاع المجاني</div>
+                </div>
+
+                <div class="tab-content">
+                    <p>إذا كنت تبحث عن الإكسسوار الأمثل لملابس الرجال لهذا الموسم، فلا تبحث أكثر من حقيبة تومي هيلفيغر
+                        هذه، الحل المثالي لخزانة الملابس.</p>
+                    <ul>
+                        <li>مصنوعة بأعلى جودة من القماش، هذا التصميم ضروري لمجموعة الإكسسوارات الخاصة بك</li>
+                        <li>بفضل التفاصيل المصممة بعناية، لديها كل ما تحتاجه لرفع مستوى أسلوبك</li>
+                        <li>هذا التصميم الأيقوني والمتعدد الاستخدامات يمكن ارتداؤه مع الملابس الرياضية أو مع شيء أكثر
+                            أناقة</li>
+                    </ul>
+                </div>
+
+                <div class="help-links">
+                    <a href="#" class="help-link">تحتاج مساعدة؟</a>
+                    <a href="#" class="help-link">اتصل بنا</a>
+                    <a href="#" class="help-link">واتساب</a>
+                </div>
+
+                <div class="product-code">
+                    رمز المنتج: 218062668
+                </div>
+            </div>
+        </div>
+
+        <!-- You May Also Like -->
+        <div class="section-text">قد يعجبك أيضاً</div>
+
+        <div class="carousel">
+            <div class="carousel-buttons">
+                <div class="carousel-button">‹</div>
+                <div class="carousel-button">›</div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="product-item">
+                    <div class="quick-view">🔍</div>
+                    <div class="heart-icon">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <img src="img/prod1.jpg" alt="Product 1" class="product-image">
+                    <div class="product-details">
+                        <div class="brand-name">كالفن كلاين</div>
+                        <div class="product-name">حقيبة كالفن كلاين الكاجوال</div>
+                        <div class="price">460 ريال</div>
+                        <div class="original-price">925 ريال</div>
+                        <div class="discount">خصم 50%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="product-item">
+                    <div class="quick-view">🔍</div>
+                    <div class="heart-icon">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <img src="img/prod2.jpg" alt="Product 2" class="product-image">
+                    <div class="product-details">
+                        <div class="brand-name">كالفن كلاين</div>
+                        <div class="product-name">حقيبة كالفن كلاين الأساسية للسفر</div>
+                        <div class="price">610 ريال</div>
+                        <div class="original-price">875 ريال</div>
+                        <div class="discount">خصم 30%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="product-item">
+                    <div class="quick-view">🔍</div>
+                    <div class="heart-icon">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <img src="img/prod3.jpg" alt="Product 3" class="product-image">
+                    <div class="product-details">
+                        <div class="brand-name">أرماني إكستشينج</div>
+                        <div class="product-name">حقيبة أرماني إكستشينج بشعار النخيل</div>
+                        <div class="price">750 ريال</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="product-item">
+                    <div class="quick-view">🔍</div>
+                    <div class="heart-icon">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <img src="img/prod4.jpg" alt="Product 4" class="product-image">
+                    <div class="product-details">
+                        <div class="brand-name">مايكل كورز</div>
+                        <div class="product-name">حقيبة مايكل كورز الجلدية</div>
+                        <div class="price">1,450 ريال</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="product-item">
+                    <div class="quick-view">🔍</div>
+                    <div class="heart-icon">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <img src="img/prod5.jpg" alt="Product 5" class="product-image">
+                    <div class="product-details">
+                        <div class="brand-name">MC</div>
+                        <div class="product-name">Large Diamond VIT</div>
+                        <div class="price">4,629</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- More From Tommy Hilfiger -->
+        <div class="section-text">المزيد من تومي هيلفيغر</div>
+
+        <div class="carousel">
+            <div class="carousel-buttons">
+                <div class="carousel-button">‹</div>
+                <div class="carousel-button">›</div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="product-item">
+                    <div class="quick-view">🔍</div>
+                    <div class="heart-icon">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <img src="img/prod6.jpg" alt="Product 1" class="product-image">
+                    <div class="product-details">
+                        <div class="brand-name">TOMMY HILFIGER</div>
+                        <div class="product-name">TH Business Logo Duffel Bag in Nyl...</div>
+                        <div class="price">1,000 SAR</div>
+                        <div class="original-price">1,250 SAR</div>
+                        <div class="discount">20% OFF</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="product-item">
+                    <div class="quick-view">🔍</div>
+                    <div class="heart-icon">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <img src="img/prod7.jpg" alt="Product 2" class="product-image">
+                    <div class="product-details">
+                        <div class="brand-name">TOMMY HILFIGER</div>
+                        <div class="product-name">Colour-blocked Beach Tote Bag</div>
+                        <div class="price">800 SAR</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="product-item">
+                    <div class="quick-view">🔍</div>
+                    <div class="heart-icon">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <img src="img/prod8.jpg" alt="Product 3" class="product-image">
+                    <div class="product-details">
+                        <div class="brand-name">TOMMY HILFIGER</div>
+                        <div class="product-name">TH Monogram Crossbody Duffel Bag</div>
+                        <div class="price">1,250 SAR</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="product-item">
+                    <div class="quick-view">🔍</div>
+                    <div class="heart-icon">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <img src="img/prod9.jpg" alt="Product 4" class="product-image">
+                    <div class="product-details">
+                        <div class="brand-name">TOMMY HILFIGER</div>
+                        <div class="product-name">TH Casual Prep Backpack in Leather</div>
+                        <div class="price">2,150 SAR</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="product-item">
+                    <div class="quick-view">🔍</div>
+                    <div class="heart-icon">
+                        <i class="far fa-heart"></i>
+                    </div>
+
+                    <img src="img/prod10.jpg" alt="Product 5" class="product-image">
+                    <div class="product-details">
+                        <div class="brand-name">TOMMY HILFIGER</div>
+                        <div class="product-name">Reporter Bag</div>
+                        <div class="price">805 SAR</div>
+                        <div class="original-price">1,150 SAR</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div>
+                    <h3>اشترك في نشرتنا الإخبارية</h3>
+                    <p style="color: var(--gray-400); margin-bottom: 1rem; font-size: 0.9375rem;">احصل على أحدث
+                        التحديثات حول الوافدات الجديدة، العروض الحصرية، والمزيد.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="your.email@example.com" class="newsletter-input">
+                        <button class="newsletter-button">اشترك</button>
+                    </div>
+                </div>
+                <div>
+                    <h3>تابع إطلالة</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3>العلامات التجارية الرائدة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Prada</a></li>
+                        <li><a href="#">Gucci</a></li>
+                        <li><a href="#">Balenciaga</a></li>
+                        <li><a href="#">Valentino</a></li>
+                        <li><a href="#">Fendi</a></li>
+                        <li><a href="#">Bottega Veneta</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>الفئات الرائدة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">الملابس</a></li>
+                        <li><a href="#">الأحذية</a></li>
+                        <li><a href="#">الأحذية الرياضية</a></li>
+                        <li><a href="#">الإكسسوارات</a></li>
+                        <li><a href="#">العناية الشخصية</a></li>
+                        <li><a href="#">الحقائب</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>خدمة العملاء</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">الدفع</a></li>
+                        <li><a href="#">تتبع الطلب</a></li>
+                        <li><a href="#">الإرجاع والتبادل</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-grid">
+                    <div>
+                        <div class="footer-logo">
+                            <img src="https://placehold.co/60x60/1a1a1a/ffffff?text=LOGO" alt="Logo">
+                            <span style="color: var(--gray-400); font-weight: 500;">الموطن النهائي للفخامة</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="footer-contact">
+                            Contact Customer Care: <a href="tel:97444196400">974 44196400</a><br>
+                            WhatsApp Customer Care: <a href="tel:97144223100">97144223100</a>
+                        </p>
+                    </div>
+                    <div>
+                        <h3
+                            style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 1rem; text-transform: uppercase; color: var(--white);">
+                            حولنا</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">حول أوناس</a></li>
+                            <li><a href="#">الوظائف</a></li>
+                            <li><a href="#">الصحافة</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3
+                            style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 1rem; text-transform: uppercase; color: var(--white);">
+                            القانوني</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">الشروط والأحكام</a></li>
+                            <li><a href="#">سياسة الخصوصية وملفات تعريف الارتباط</a></li>
+                            <li><a href="#">مطابقة السعر</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3
+                            style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 1rem; text-transform: uppercase; color: var(--white);">
+                            الشحن والإرجاع</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">الشحن والتسليم</a></li>
+                            <li><a href="#">الإرجاع عبر الإنترنت</a></li>
+                            <li><a href="#">الشحن الدولي</a></li>
+                        </ul>
+                        <div class="footer-apps">
+                            <h3 class="footer-apps-title">تطبيقات إطلالة</h3>
+                            <div class="footer-apps-links">
+                                <a href="#">
+                                    <img src="https://placehold.co/120x40/1a1a1a/ffffff?text=App+Store" alt="App Store">
+                                </a>
+                                <a href="#">
+                                    <img src="https://placehold.co/120x40/1a1a1a/ffffff?text=Google+Play"
+                                        alt="Google Play">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-copyright">
+                    <div class="footer-copyright-content">
+                        <p>Al Tayer Group LLC. 2025. All Rights Reserved</p>
+                        <img src="https://placehold.co/150x40/1a1a1a/ffffff?text=AL+TAYER" alt="Al Tayer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+
+    <script>
+        document.querySelectorAll('.heart-icon').forEach(icon => {
+            icon.addEventListener('click', () => {
+                const heart = icon.querySelector("i");
+                heart.classList.toggle("far");
+                heart.classList.toggle("fas");
+                icon.classList.toggle("active");
+            });
+        });
+
+    </script>
+
+    <script>
+        // Animation on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const elements = document.querySelectorAll('.animate-fade-in');
+            elements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, 200 * index);
+            });
+
+            // Add hover effects
+            const productCards = document.querySelectorAll('.product-item');
+            productCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Tab functionality
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                });
+            });
+
+            // Heart button toggle
+            const heartButtons = document.querySelectorAll('.heart-button');
+            heartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const heartIcon = button.querySelector('svg');
+                    if (heartIcon.getAttribute('fill') === 'currentColor') {
+                        heartIcon.setAttribute('fill', 'none');
+                    } else {
+                        heartIcon.setAttribute('fill', 'currentColor');
+                    }
+                });
+            });
+
+            // Carousel navigation
+            const carousels = document.querySelectorAll('.carousel');
+            carousels.forEach(carousel => {
+                const buttons = carousel.querySelectorAll('.carousel-button');
+                const items = carousel.querySelectorAll('.carousel-item');
+
+                let currentIndex = 0;
+
+                buttons[0].addEventListener('click', () => {
+                    currentIndex = Math.max(0, currentIndex - 1);
+                    updateCarousel();
+                });
+
+                buttons[1].addEventListener('click', () => {
+                    currentIndex = Math.min(items.length - 1, currentIndex + 1);
+                    updateCarousel();
+                });
+
+                function updateCarousel() {
+                    carousel.style.transform = `translateX(-${currentIndex * 250}px)`;
+                }
+            });
+
+            // Add to bag animation
+            const addToBagButton = document.querySelector('.add-to-bag');
+            addToBagButton.addEventListener('click', () => {
+                addToBagButton.style.backgroundColor = '#b36949';
+                addToBagButton.innerHTML = '<i class="fas fa-check"></i> Added!';
+
+                setTimeout(() => {
+                    addToBagButton.style.backgroundColor = '#d37c5e';
+                    addToBagButton.innerHTML = 'ADD TO BAG';
+                }, 1500);
+            });
+
+            // Image gallery functionality
+            const mainImage = document.querySelector('.main-image');
+            const thumbnails = document.querySelectorAll('.thumbnail img');
+            const imageControls = document.querySelectorAll('.image-control');
+
+            // Array of thumbnail sources
+            const imageSources = Array.from(thumbnails).map(img => img.src);
+
+            // Set initial main image to first thumbnail
+            if (imageSources.length > 0) {
+                mainImage.src = imageSources[0];
+            }
+
+            let currentIndex = 0;
+
+            // Thumbnail click to change main image
+            thumbnails.forEach((thumbnail, index) => {
+                thumbnail.addEventListener('click', () => {
+                    mainImage.src = thumbnail.src;
+                    currentIndex = index;
+                });
+            });
+
+            // Arrow controls to navigate images
+            imageControls[0].addEventListener('click', () => { // Left arrow ‹
+                currentIndex = (currentIndex - 1 + imageSources.length) % imageSources.length;
+                mainImage.src = imageSources[currentIndex];
+            });
+
+            imageControls[1].addEventListener('click', () => { // Right arrow ›
+                currentIndex = (currentIndex + 1) % imageSources.length;
+                mainImage.src = imageSources[currentIndex];
+            });
+        });
+    </script>
+</body>
+
+</html>

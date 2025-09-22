@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إطلالة متجر الأزياء الفاخرة</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Latest Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+
+</head>
+
+<body>
+    <div class="loading-screen">
+        <div class="loading-logo font-playfair">إطلالة</div>
+        <div class="loading-progress">
+            <div class="loading-bar"></div>
+        </div>
+        <div class="loading-text">جارٍ تحميل التجربة</div>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h1 class="font-playfair" style="font-size: 1.875rem; font-weight: 700; color: var(--black);">إطلالة</h1>
+            <button class="mobile-menu-close"
+                style="background: none; border: none; color: var(--black); font-size: 1.875rem;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+            <div style="position: relative; margin-bottom: 1rem;">
+                <input type="text" placeholder="البحث عن مصمم أو منتج"
+                    style="width: 100%; padding: 0.75rem 2.5rem 0.75rem 1rem; background: var(--white); color: var(--black); border-radius: 2rem; border: 1px solid var(--gray-300); font-size: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                <i class="fas fa-search"
+                    style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--gray-500);"></i>
+            </div>
+        </div>
+
+        <!-- القوائم (Accordion) -->
+        <div style="margin-bottom: 2rem;">
+            <h3 style="color: var(--black); font-weight: 600; font-size: 1.125rem; margin-bottom: 1rem;">الفئات</h3>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+
+                <details>
+                    <summary
+                        style="cursor:pointer; padding:0.75rem; border-radius:0.5rem; color:var(--gray-700); font-weight:500;">
+                        ما وصل حديثا</summary>
+                    <div style="padding:0.5rem 1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                        <a href="#">الوافدات الجديدات للنساء</a>
+                        <a href="#">الوافدات الجديدات للرجال</a>
+                        <a href="#">الوافدات الجديدات للأطفال</a>
+                        <a href="#">الرائج الآن</a>
+                        <a href="#">الإطلاقات الحصرية</a>
+                    </div>
+                </details>
+
+                <details>
+                    <summary
+                        style="cursor:pointer; padding:0.75rem; border-radius:0.5rem; color:var(--gray-700); font-weight:500;">
+                        المصممون</summary>
+                    <div style="padding:0.5rem 1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                        <a href="#">المصممون من أ إلى ي</a>
+                        <a href="#">المصممون الجدد</a>
+                        <a href="#">برادا</a>
+                        <a href="#">غوتشي</a>
+                        <a href="#">بالنسياغا</a>
+                        <a href="#">فالنتينو</a>
+                    </div>
+                </details>
+
+                <details>
+                    <summary
+                        style="cursor:pointer; padding:0.75rem; border-radius:0.5rem; color:var(--gray-700); font-weight:500;">
+                        الملابس</summary>
+                    <div style="padding:0.5rem 1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                        <a href="#">الفساتين</a>
+                        <a href="#">القمصان</a>
+                        <a href="#">السراويل</a>
+                        <a href="#">الملابس الخارجية</a>
+                        <a href="#">مجموعات المصممين</a>
+                    </div>
+                </details>
+
+                <details>
+                    <summary
+                        style="cursor:pointer; padding:0.75rem; border-radius:0.5rem; color:var(--gray-700); font-weight:500;">
+                        الأحذية</summary>
+                    <div style="padding:0.5rem 1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                        <a href="#">الكعب العالي</a>
+                        <a href="#">الأحذية المسطحة</a>
+                        <a href="#">الأحذية الطويلة</a>
+                        <a href="#">الصنادل</a>
+                        <a href="#">أحذية المصممين</a>
+                    </div>
+                </details>
+
+                <details>
+                    <summary
+                        style="cursor:pointer; padding:0.75rem; border-radius:0.5rem; color:var(--gray-700); font-weight:500;">
+                        الأحذية الرياضية</summary>
+                    <div style="padding:0.5rem 1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                        <a href="#">الأحذية المنخفضة</a>
+                        <a href="#">الأحذية العالية</a>
+                        <a href="#">الأحذية الرياضية للمصممين</a>
+                        <a href="#">نايكي</a>
+                        <a href="#">أديداس</a>
+                        <a href="#">نيو بالانس</a>
+                    </div>
+                </details>
+
+                <details>
+                    <summary
+                        style="cursor:pointer; padding:0.75rem; border-radius:0.5rem; color:var(--gray-700); font-weight:500;">
+                        الإكسسوارات</summary>
+                    <div style="padding:0.5rem 1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                        <a href="#">المجوهرات</a>
+                        <a href="#">الأحزمة</a>
+                        <a href="#">القبعات والقفازات</a>
+                        <a href="#">النظارات الشمسية</a>
+                        <a href="#">إكسسوارات المصممين</a>
+                    </div>
+                </details>
+
+                <details>
+                    <summary
+                        style="cursor:pointer; padding:0.75rem; border-radius:0.5rem; color:var(--gray-700); font-weight:500;">
+                        العناية الشخصية</summary>
+                    <div style="padding:0.5rem 1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                        <a href="#">العطور</a>
+                        <a href="#">عناية البشرة</a>
+                        <a href="#">عناية الشعر</a>
+                        <a href="#">عناية الجسم</a>
+                        <a href="#">العلامات الفاخرة</a>
+                    </div>
+                </details>
+
+                <details>
+                    <summary
+                        style="cursor:pointer; padding:0.75rem; border-radius:0.5rem; color:var(--secondary); font-weight:600;">
+                        تخفيضات</summary>
+                    <div style="padding:0.5rem 1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                        <a href="#">تخفيضات النساء</a>
+                        <a href="#">تخفيضات الرجال</a>
+                        <a href="#">تخفيضات الأطفال</a>
+                        <a href="#">خصم يصل إلى 50%</a>
+                        <a href="#">التخفيض النهائي</a>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+
+        <!-- الحساب + باقي الخيارات كما هي -->
+        <div style="margin-bottom: 2rem;">
+            <h3 style="color: var(--black); font-weight: 600; font-size: 1.125rem; margin-bottom: 1rem;">الحساب</h3>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <a href="profile.html"><i class="fas fa-user"></i> الحساب</a>
+                <a href="#"><i class="fas fa-heart"></i> قائمة الرغبات (0)</a>
+                <a href="#"><i class="fas fa-shopping-bag"></i> الحقيبة (0)</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="desktop-nav">
+                <a href="index.html" class="btn-nav ">نساء</a>
+                <a href="index.html" class="btn-nav">رجال</a>
+                <a href="index.html" class="btn-nav ">أطفال</a>
+            </div>
+
+            <div class="header-top-right">
+                <div class="country-dot"></div>
+                <select class="desktop-country">
+                    <option>Egypt</option>
+                    <option>Saudi Arabia</option>
+                    <option>UAE</option>
+                </select>
+                <a href="#" class="desktop-lang">العربية</a>
+            </div>
+        </div>
+
+        <div class="header-container">
+
+            <div class="header-middle">
+                <div class="search-container">
+                    <input type="text" placeholder="البحث عن مصمم أو منتج">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <div class="logo">
+                    <h1 class="font-playfair"><a href="index.html">إطلالة</a></h1>
+                    <p>الموطن النهائي للفخامة</p>
+                </div>
+                <div class="header-actions">
+                    <a href="profile.html" class="header-action">
+                        <i class="fas fa-user"></i>
+                        <span>الحساب</span>
+                    </a>
+                    <a href="#" class="header-action">
+                        <i class="fas fa-heart"></i>
+                        <span>قائمة الرغبات (0)</span>
+                    </a>
+                    <a href="#" class="header-action">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>الحقيبة (0)</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="desktop-nav-main">
+                <nav class="main-nav">
+                    <div class="nav-item">
+                        <a href="new.html" class="nav-link">ما وصل حديثا</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">الوافدات الجديدات للنساء</a>
+                            <a href="#" class="dropdown-item">الوافدات الجديدات للرجال</a>
+                            <a href="#" class="dropdown-item">الوافدات الجديدات للأطفال</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">الرائج الآن</a>
+                            <a href="#" class="dropdown-item">الإطلاقات الحصرية</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">المصممون</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">المصممون من أ إلى ي</a>
+                            <a href="#" class="dropdown-item">المصممون الجدد</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">برادا</a>
+                            <a href="#" class="dropdown-item">غوتشي</a>
+                            <a href="#" class="dropdown-item">بالنسياغا</a>
+                            <a href="#" class="dropdown-item">فالنتينو</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">الملابس</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">الفساتين</a>
+                            <a href="#" class="dropdown-item">القمصان</a>
+                            <a href="#" class="dropdown-item">السراويل</a>
+                            <a href="#" class="dropdown-item">الملابس الخارجية</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">مجموعات المصممين</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">الأحذية</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">الكعب العالي</a>
+                            <a href="#" class="dropdown-item">الأحذية المسطحة</a>
+                            <a href="#" class="dropdown-item">الأحذية الطويلة</a>
+                            <a href="#" class="dropdown-item">الصنادل</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">أحذية المصممين</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">الأحذية الرياضية</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">الأحذية المنخفضة</a>
+                            <a href="#" class="dropdown-item">الأحذية العالية</a>
+                            <a href="#" class="dropdown-item">الأحذية الرياضية للمصممين</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">نايكي</a>
+                            <a href="#" class="dropdown-item">أديداس</a>
+                            <a href="#" class="dropdown-item">نيو بالانس</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">الإكسسوارات</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">المجوهرات</a>
+                            <a href="#" class="dropdown-item">الأحزمة</a>
+                            <a href="#" class="dropdown-item">القبعات والقفازات</a>
+                            <a href="#" class="dropdown-item">النظارات الشمسية</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">إكسسوارات المصممين</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">العناية الشخصية</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">العطور</a>
+                            <a href="#" class="dropdown-item">عناية البشرة</a>
+                            <a href="#" class="dropdown-item">عناية الشعر</a>
+                            <a href="#" class="dropdown-item">عناية الجسم</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">العلامات الفاخرة</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link sale">تخفيضات</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">تخفيضات النساء</a>
+                            <a href="#" class="dropdown-item">تخفيضات الرجال</a>
+                            <a href="#" class="dropdown-item">تخفيضات الأطفال</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">خصم يصل إلى 50%</a>
+                            <a href="#" class="dropdown-item">التخفيض النهائي</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="header-bottom">
+                <div class="header-bottom-content">
+                    <div class="header-bottom-item">
+                        <i class="fas fa-truck"></i>
+                        <span>شحن مجاني* وإرجاع سلس*</span>
+                    </div>
+                    <div class="header-bottom-item">
+                        <i class="fas fa-gift"></i>
+                        <span>تغليف هدايا مجاني</span>
+                    </div>
+                    <div class="header-bottom-item">
+                        <i class="fab fa-apple-pay"></i>
+                        <span>ادفع بسهولة مع Apple Pay</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-image-container">
+                <img src="img/hero2.jpg" alt="Hero Image" class="hero-image">
+                <div class="hero-overlay">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            العصر الجديد<br>
+                            للأزياء
+                        </h1>
+                        <p class="hero-subtitle">خريف / شتاء 2025</p>
+                        <p class="hero-description">
+                            ادخل موسمًا من الأناقة الجريئة، حيث يلتقي التصميم الحديث
+                            بالأنوثة الخالدة. اكتشف قوة الأسلوب.
+                        </p>
+                        <a href="#" class="hero-cta">تسوق الآن</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Film Section -->
+    <section class="film-section">
+        <div class="film-container">
+            <div class="film-image-container">
+                <img src="img/pic1.jpg" alt="Film Image" class="hero-image">
+                <div class="film-content slide-up delay-300">
+                    <h3 class="film-title font-playfair">من خلال العدسة:</h3>
+                    <p class="film-subtitle">فيلم FW'25</p>
+                    <a href="#" class="film-cta">شاهد وتسوق</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Season's Highlights -->
+    <section class="highlights-section">
+        <div class="highlights-container">
+            <h2 class="section-title font-playfair slide-up delay-200">إبرازات الموسم</h2>
+            <div class="highlights-grid">
+                <div class="highlight-item slide-up delay-300">
+                    <img src="img/LOAFERS.jpg" alt="Loafers" class="highlight-image">
+                    <div class="highlight-overlay">
+                        <h3 class="highlight-title">تشطيبات غنية تضبط المزاج</h3>
+                        <a href="#" class="highlight-cta">تسوق الأحذية المنخفضة</a>
+                    </div>
+                </div>
+                <div class="highlight-item slide-up delay-400">
+                    <img src="img/JACKETS.jpg" alt="Jackets" class="highlight-image">
+                    <div class="highlight-overlay">
+                        <h3 class="highlight-title">تصاميم فاخرة تدوم</h3>
+                        <a href="#" class="highlight-cta">تسوق الجاكيتات</a>
+                    </div>
+                </div>
+                <div class="highlight-item slide-up delay-500">
+                    <img src="img/BAGS.jpg" alt="Tote Bags" class="highlight-image">
+                    <div class="highlight-overlay">
+                        <h3 class="highlight-title">رسخ أسلوبك الخريفي اللامع</h3>
+                        <a href="#" class="highlight-cta">تسوق حقائب التوت</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="products-section">
+        <div class="products-container">
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <a href="details.html" class="product-card slide-up delay-200">
+                    <div class="product-image-container">
+                        <img src="img/prod1.jpg" alt="Product 1" class="product-image">
+                        <button class="wishlist-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-brand">PRADA</h3>
+                        <p class="product-description">Re-Edition 2000 Nylon Shoulder Bag</p>
+                        <p class="product-price">1,500 EGP</p>
+                    </div>
+                </a>
+
+                <!-- Product 2 -->
+                <a href="details.html" class="product-card slide-up delay-300">
+                    <div class="product-image-container">
+                        <img src="img/prod2.jpg" alt="Product 2" class="product-image">
+                        <button class="wishlist-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-brand">GUCCI</h3>
+                        <p class="product-description">GG Marmont Matelassé Mini Bag</p>
+                        <p class="product-price">2,000 EGP</p>
+                    </div>
+                </a>
+
+                <!-- Product 3 -->
+                <a href="details.html" class="product-card slide-up delay-400">
+                    <div class="product-image-container">
+                        <img src="img/prod3.jpg" alt="Product 3" class="product-image">
+                        <button class="wishlist-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-brand">BALENCIAGA</h3>
+                        <p class="product-description">Hourglass Small Leather Bag</p>
+                        <p class="product-price">2,500 EGP</p>
+                    </div>
+                </a>
+
+                <!-- Product 4 -->
+                <a href="details.html" class="product-card slide-up delay-500">
+                    <div class="product-image-container">
+                        <img src="img/prod4.jpg" alt="Product 4" class="product-image">
+                        <button class="wishlist-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-brand">VALENTINO</h3>
+                        <p class="product-description">Rockstud Spike Small Shoulder Bag</p>
+                        <p class="product-price">3,000 EGP</p>
+                    </div>
+                </a>
+
+                <!-- Product 5 -->
+                <a href="details.html" class="product-card slide-up delay-600">
+                    <div class="product-image-container">
+                        <img src="img/prod5.jpg" alt="Product 5" class="product-image">
+                        <button class="wishlist-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-brand">FENDI</h3>
+                        <p class="product-description">Peekaboo ISeeU Small Bag</p>
+                        <p class="product-price">1,800 EGP</p>
+                    </div>
+                </a>
+
+                <!-- Product 6 -->
+                <a href="details.html" class="product-card slide-up delay-700">
+                    <div class="product-image-container">
+                        <img src="img/prod6.jpg" alt="Product 6" class="product-image">
+                        <button class="wishlist-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-brand">BOTTEGA VENETA</h3>
+                        <p class="product-description">Cassette Intrecciato Leather Bag</p>
+                        <p class="product-price">2,200 EGP</p>
+                    </div>
+                </a>
+
+                <!-- Product 7 -->
+                <a href="details.html" class="product-card slide-up delay-800">
+                    <div class="product-image-container">
+                        <img src="img/prod7.jpg" alt="Product 7" class="product-image">
+                        <button class="wishlist-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-brand">SAINT LAURENT</h3>
+                        <p class="product-description">Kate Medium Monogram Chain Bag</p>
+                        <p class="product-price">1,950 EGP</p>
+                    </div>
+                </a>
+
+                <!-- Product 8 -->
+                <a href="details.html" class="product-card slide-up delay-900">
+                    <div class="product-image-container">
+                        <img src="img/prod8.jpg" alt="Product 8" class="product-image">
+                        <button class="wishlist-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-brand">CHANEL</h3>
+                        <p class="product-description">Classic Flap Medium Lambskin</p>
+                        <p class="product-price">2,750 EGP</p>
+                    </div>
+                </a>
+
+                <!-- Product 9 -->
+                <a href="details.html" class="product-card slide-up delay-1000">
+                    <div class="product-image-container">
+                        <img src="img/prod9.jpg" alt="Product 9" class="product-image">
+                        <button class="wishlist-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-brand">LOUIS VUITTON</h3>
+                        <p class="product-description">Neverfull MM Canvas Tote</p>
+                        <p class="product-price">3,200 EGP</p>
+                    </div>
+                </a>
+
+                <!-- Product 10 -->
+                <a href="details.html" class="product-card slide-up delay-1100">
+                    <div class="product-image-container">
+                        <img src="img/prod10.jpg" alt="Product 10" class="product-image">
+                        <button class="wishlist-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-brand">BURBERRY</h3>
+                        <p class="product-description">TB Monogram Leather Shoulder Bag</p>
+                        <p class="product-price">2,100 EGP</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Brand Feature -->
+    <section class="brand-section">
+        <div class="brand-container">
+            <div class="brand-image-container">
+                <img src="img/brand2.jpg" alt="Cherry Los Angeles Icons" class="hero-image">
+                <div class="brand-content slide-up delay-300">
+                    <div class="brand-text">
+                        <h2 class="brand-title font-playfair">أيقونات تشيري لوس أنجلوس</h2>
+                        <p class="brand-description">مستمدة من ثقافة الشوارع في لوس أنجلوس، تجلب العلامة ألوانًا جاهزة
+                            للخريف مع حافة متمردة</p>
+                        <a href="#" class="hero-cta">تسوق العلامة التجارية</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Watch and Fragrance Sections -->
+    <section class="categories-section">
+        <div class="categories-container">
+            <div class="categories-grid">
+                <div class="category-item slide-up delay-200">
+                    <img src="img/Watch4.jpg" alt="Watch Shop" class="category-image">
+                    <div class="category-overlay">
+                        <h3 class="category-title font-playfair">متجر الساعات</h3>
+                    </div>
+                </div>
+                <div class="category-item slide-up delay-300">
+                    <img src="img/Fragrance.jpg" alt="Fragrance Lab" class="category-image">
+                    <div class="category-overlay">
+                        <h3 class="category-title font-playfair">مختبر العطور</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sneakers Carousel -->
+    <section class="sneakers-section">
+        <div class="sneakers-container">
+            <h2 class="sneakers-header font-playfair slide-up delay-200">أحذية رياضية موسم جديد</h2>
+            <div class="carousel-container">
+                <button class="carousel-nav prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-track">
+                    <div class="carousel-card slide-up delay-300">
+                        <div class="sneaker-card">
+                            <img src="img/prod1.jpg" alt="Prada Sneakers" class="sneaker-image">
+                            <div class="sneaker-info">
+                                <span class="sneaker-badge">موسم جديد</span>
+                                <h3 class="sneaker-brand">PRADA</h3>
+                                <p class="sneaker-description">أحذية داون تاون في الجلد</p>
+                                <p class="sneaker-price">4,180 EGP</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-card slide-up delay-400">
+                        <div class="sneaker-card">
+                            <img src="img/prod10.jpg" alt="Jacquemus Sneakers" class="sneaker-image">
+                            <div class="sneaker-info">
+                                <span class="sneaker-badge">موسم جديد</span>
+                                <h3 class="sneaker-brand">JACQUEMUS</h3>
+                                <p class="sneaker-description">أحذية التنس في النقش...</p>
+                                <p class="sneaker-price">1,650 EGP</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-card slide-up delay-500">
+                        <div class="sneaker-card">
+                            <img src="img/prod4.jpg" alt="Dolce & Gabbana Sneakers" class="sneaker-image">
+                            <div class="sneaker-info">
+                                <span class="sneaker-badge">موسم جديد</span>
+                                <h3 class="sneaker-brand">DOLCE & GABBANA</h3>
+                                <p class="sneaker-description">أحذية بورتوفينو منخفضة في ...</p>
+                                <p class="sneaker-price">3,050 EGP</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-card slide-up delay-600">
+                        <div class="sneaker-card">
+                            <img src="img/Watch4.jpg" alt="Golden Goose Sneakers" class="sneaker-image">
+                            <div class="sneaker-info">
+                                <span class="sneaker-badge">موسم جديد</span>
+                                <h3 class="sneaker-brand">GOLDEN GOOSE</h3>
+                                <p class="sneaker-description">أحذية بال ستار في السويد والل...</p>
+                                <p class="sneaker-price">2,468 EGP</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-card slide-up delay-700">
+                        <div class="sneaker-card">
+                            <img src="img/prod5.jpg" alt="Salomon Sneakers" class="sneaker-image">
+                            <div class="sneaker-info">
+                                <span class="sneaker-badge">موسم جديد</span>
+                                <h3 class="sneaker-brand">SALOMON</h3>
+                                <p class="sneaker-description">أحذية ACS + OG في الشبكة</p>
+                                <p class="sneaker-price">772 EGP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-nav next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter and App Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-grid">
+                <div class="cta-card slide-up delay-200">
+                    <img src="img/Shopping.jpg" alt="Amber" class="cta-image">
+                    <p class="cta-text">استمتع بمكافآت حصرية وعروض للأعضاء فقط.</p>
+                    <button class="cta-button float">انضم أو سجل الدخول</button>
+                </div>
+                <div class="cta-card slide-up delay-300">
+                    <img src="img/Shoppinginterface.jpg" alt="App Screenshot" class="app-screenshot">
+
+
+                </div>
+                <div class="cta-card slide-up delay-400">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">احصل على 10% خصم على طلبك
+                        الأول من التطبيق</h3>
+                    <p class="cta-text">أدخل الرمز</p>
+                    <p class="app-code">APP10</p>
+                    <p class="cta-text" style="margin-bottom: 1.5rem;">عند الدفع</p>
+                    <div class="app-stores">
+                        <a href="#">
+                            <img src="https://placehold.co/200x50/1a1a1a/ffffff?text=GET+IT+ON+Google+Play"
+                                alt="Google Play" class="app-store">
+                        </a>
+                        <a href="#">
+                            <img src="https://placehold.co/200x50/1a1a1a/ffffff?text=Download+on+the+App+Store"
+                                alt="App Store" class="app-store">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div>
+                    <h3>اشترك في نشرتنا الإخبارية</h3>
+                    <p style="color: var(--gray-400); margin-bottom: 1rem; font-size: 0.9375rem;">احصل على أحدث
+                        التحديثات حول الوافدات الجديدة، العروض الحصرية، والمزيد.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="your.email@example.com" class="newsletter-input">
+                        <button class="newsletter-button">اشترك</button>
+                    </div>
+                </div>
+                <div>
+                    <h3>تابع إطلالة</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3>العلامات التجارية الرائدة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Prada</a></li>
+                        <li><a href="#">Gucci</a></li>
+                        <li><a href="#">Balenciaga</a></li>
+                        <li><a href="#">Valentino</a></li>
+                        <li><a href="#">Fendi</a></li>
+                        <li><a href="#">Bottega Veneta</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>الفئات الرائدة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">الملابس</a></li>
+                        <li><a href="#">الأحذية</a></li>
+                        <li><a href="#">الأحذية الرياضية</a></li>
+                        <li><a href="#">الإكسسوارات</a></li>
+                        <li><a href="#">العناية الشخصية</a></li>
+                        <li><a href="#">الحقائب</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>خدمة العملاء</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">الدفع</a></li>
+                        <li><a href="#">تتبع الطلب</a></li>
+                        <li><a href="#">الإرجاع والتبادل</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-grid">
+                    <div>
+                        <div class="footer-logo">
+                            <img src="https://placehold.co/60x60/1a1a1a/ffffff?text=LOGO" alt="Logo">
+                            <span style="color: var(--gray-400); font-weight: 500;">الموطن النهائي للفخامة</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="footer-contact">
+                            Contact Customer Care: <a href="tel:97444196400">974 44196400</a><br>
+                            WhatsApp Customer Care: <a href="tel:97144223100">97144223100</a>
+                        </p>
+                    </div>
+                    <div>
+                        <h3
+                            style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 1rem; text-transform: uppercase; color: var(--white);">
+                            حولنا</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">حول أوناس</a></li>
+                            <li><a href="#">الوظائف</a></li>
+                            <li><a href="#">الصحافة</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3
+                            style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 1rem; text-transform: uppercase; color: var(--white);">
+                            القانوني</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">الشروط والأحكام</a></li>
+                            <li><a href="#">سياسة الخصوصية وملفات تعريف الارتباط</a></li>
+                            <li><a href="#">مطابقة السعر</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3
+                            style="font-size: 0.9375rem; font-weight: 600; margin-bottom: 1rem; text-transform: uppercase; color: var(--white);">
+                            الشحن والإرجاع</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">الشحن والتسليم</a></li>
+                            <li><a href="#">الإرجاع عبر الإنترنت</a></li>
+                            <li><a href="#">الشحن الدولي</a></li>
+                        </ul>
+                        <div class="footer-apps">
+                            <h3 class="footer-apps-title">تطبيقات إطلالة</h3>
+                            <div class="footer-apps-links">
+                                <a href="#">
+                                    <img src="https://placehold.co/120x40/1a1a1a/ffffff?text=App+Store" alt="App Store">
+                                </a>
+                                <a href="#">
+                                    <img src="https://placehold.co/120x40/1a1a1a/ffffff?text=Google+Play"
+                                        alt="Google Play">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-copyright">
+                    <div class="footer-copyright-content">
+                        <p>Al Tayer Group LLC. 2025. All Rights Reserved</p>
+                        <img src="https://placehold.co/150x40/1a1a1a/ffffff?text=AL+TAYER" alt="Al Tayer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div class="image-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <img id="modal-image" src="" alt="Product Image">
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
