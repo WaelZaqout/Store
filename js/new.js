@@ -10,47 +10,62 @@ const thumbnailsContainer = document.getElementById("modal-thumbnails");
 let currentImages = [];
 let currentIndex = 0;
 
-quickViewBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        const productCard = btn.closest(".product-card");
-        currentImages = Array.from(productCard.querySelectorAll(".product-img")).map(img => img.src);
-        currentIndex = 0;
-        showImage(currentIndex);
-        modal.classList.add("active");
+if (modal && modalImg) {
+    quickViewBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const productCard = btn.closest(".product-card");
+            if (productCard) {
+                currentImages = Array.from(productCard.querySelectorAll(".product-img")).map(img => img.src);
+                currentIndex = 0;
+                showImage(currentIndex);
+                modal.classList.add("active");
+            }
+        });
     });
-});
 
-closeBtn.addEventListener("click", () => {
-    modal.classList.remove("active");
-});
+    if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+            modal.classList.remove("active");
+        });
+    }
 
-document.querySelector(".modal-overlay").addEventListener("click", () => {
-    modal.classList.remove("active");
-});
+    const modalOverlay = document.querySelector(".modal-overlay");
+    if (modalOverlay) {
+        modalOverlay.addEventListener("click", () => {
+            modal.classList.remove("active");
+        });
+    }
 
-prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-    showImage(currentIndex);
-});
-
-nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % currentImages.length;
-    showImage(currentIndex);
-});
-
-function showImage(index) {
-    modalImg.src = currentImages[index];
-    thumbnailsContainer.innerHTML = "";
-    currentImages.forEach((src, i) => {
-        const thumb = document.createElement("img");
-        thumb.src = src;
-        if (i === index) thumb.classList.add("active");
-        thumb.addEventListener("click", () => {
-            currentIndex = i;
+    if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
             showImage(currentIndex);
         });
-        thumbnailsContainer.appendChild(thumb);
-    });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % currentImages.length;
+            showImage(currentIndex);
+        });
+    }
+
+    function showImage(index) {
+        if (modalImg && thumbnailsContainer) {
+            modalImg.src = currentImages[index];
+            thumbnailsContainer.innerHTML = "";
+            currentImages.forEach((src, i) => {
+                const thumb = document.createElement("img");
+                thumb.src = src;
+                if (i === index) thumb.classList.add("active");
+                thumb.addEventListener("click", () => {
+                    currentIndex = i;
+                    showImage(currentIndex);
+                });
+                thumbnailsContainer.appendChild(thumb);
+            });
+        }
+    }
 }
 
 // Main DOM Content Loaded Functionality
@@ -81,40 +96,46 @@ document.addEventListener('DOMContentLoaded', function () {
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
 
-    mobileMenuToggle.addEventListener('click', () => {
-        mobileMenu.classList.add('active');
-        mobileMenuOverlay.classList.add('active');
+    if (mobileMenuToggle && mobileMenu && mobileMenuOverlay) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
 
-        // Animate menu items
-        const menuItems = document.querySelectorAll('.stagger-animation');
-        menuItems.forEach((item, index) => {
-            setTimeout(() => {
-                item.classList.add('active');
-            }, index * 50);
+            // Animate menu items
+            const menuItems = document.querySelectorAll('.stagger-animation');
+            menuItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('active');
+                }, index * 50);
+            });
         });
-    });
+    }
 
-    mobileMenuClose.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        mobileMenuOverlay.classList.remove('active');
+    if (mobileMenuClose && mobileMenu && mobileMenuOverlay) {
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
 
-        // Reset animation
-        const menuItems = document.querySelectorAll('.stagger-animation');
-        menuItems.forEach(item => {
-            item.classList.remove('active');
+            // Reset animation
+            const menuItems = document.querySelectorAll('.stagger-animation');
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+            });
         });
-    });
+    }
 
-    mobileMenuOverlay.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        mobileMenuOverlay.classList.remove('active');
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', () => {
+            if (mobileMenu) mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
 
-        // Reset animation
-        const menuItems = document.querySelectorAll('.stagger-animation');
-        menuItems.forEach(item => {
-            item.classList.remove('active');
+            // Reset animation
+            const menuItems = document.querySelectorAll('.stagger-animation');
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+            });
         });
-    });
+    }
 
     // Header scroll effect
     const header = document.querySelector('header');
@@ -183,21 +204,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Apply button animation
     const applyBtn = document.querySelector('.apply-btn');
-    applyBtn.addEventListener('click', function () {
-        this.innerHTML = 'APPLYING...';
-        this.style.transform = 'translateY(2px)';
-
-        setTimeout(() => {
-            this.innerHTML = 'APPLIED!';
-            this.style.background = 'linear-gradient(135deg, #2ecc71, #27ae60)';
+    if (applyBtn) {
+        applyBtn.addEventListener('click', function () {
+            this.innerHTML = 'APPLYING...';
+            this.style.transform = 'translateY(2px)';
 
             setTimeout(() => {
-                this.innerHTML = 'APPLY';
-                this.style.background = 'linear-gradient(135deg, var(--primary), #e0a88a)';
-                this.style.transform = 'translateY(0)';
-            }, 1500);
-        }, 800);
-    });
+                this.innerHTML = 'APPLIED!';
+                this.style.background = 'linear-gradient(135deg, #2ecc71, #27ae60)';
+
+                setTimeout(() => {
+                    this.innerHTML = 'APPLY';
+                    this.style.background = 'linear-gradient(135deg, var(--primary), #e0a88a)';
+                    this.style.transform = 'translateY(0)';
+                }, 1500);
+            }, 800);
+        });
+    }
 
     // Product card hover effect enhancement
     const productCards = document.querySelectorAll('.product-card');
@@ -238,37 +261,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Clear all filters
     const clearFiltersBtn = document.querySelector('.clear-filters');
-    clearFiltersBtn.addEventListener('click', function () {
-        // Reset all checkboxes
-        const checkboxes = document.querySelectorAll('.filter-checkbox input');
-        checkboxes.forEach(checkbox => {
-            checkbox.checked = false;
+    if (clearFiltersBtn) {
+        clearFiltersBtn.addEventListener('click', function () {
+            // Reset all checkboxes
+            const checkboxes = document.querySelectorAll('.filter-checkbox input');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+
+            // Show success message
+            this.innerHTML = 'CLEARED!';
+            this.style.background = 'linear-gradient(135deg, #2ecc71, #27ae60)';
+
+            setTimeout(() => {
+                this.innerHTML = 'CLEAR ALL FILTERS';
+                this.style.background = 'var(--white)';
+                this.style.color = 'var(--primary)';
+            }, 1500);
         });
-
-        // Show success message
-        this.innerHTML = 'CLEARED!';
-        this.style.background = 'linear-gradient(135deg, #2ecc71, #27ae60)';
-
-        setTimeout(() => {
-            this.innerHTML = 'CLEAR ALL FILTERS';
-            this.style.background = 'var(--white)';
-            this.style.color = 'var(--primary)';
-        }, 1500);
-    });
+    }
 
     // Mobile filter button
     const mobileFilterBtn = document.querySelector('.mobile-filter-btn');
     const filterSidebar = document.querySelector('.filter-sidebar');
 
-    mobileFilterBtn.addEventListener('click', function () {
-        filterSidebar.classList.add('active');
-        mobileMenuOverlay.classList.add('active');
-    });
+    if (mobileFilterBtn && filterSidebar && mobileMenuOverlay) {
+        mobileFilterBtn.addEventListener('click', function () {
+            filterSidebar.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+        });
 
-    mobileMenuOverlay.addEventListener('click', function () {
-        if (filterSidebar.classList.contains('active')) {
-            filterSidebar.classList.remove('active');
-            this.classList.remove('active');
-        }
-    });
+        mobileMenuOverlay.addEventListener('click', function () {
+            if (filterSidebar.classList.contains('active')) {
+                filterSidebar.classList.remove('active');
+                this.classList.remove('active');
+            }
+        });
+    }
 });

@@ -2787,7 +2787,7 @@ footer {
     margin-bottom: 10px;
 }
 
-/* Ø§Ù„ØªØ°ÙŠÙŠÙ„ */
+/* footer */
 .footer {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     color: white;
@@ -2990,7 +2990,6 @@ footer {
 
 
 /* Animations */
-/* ØªÙ… Ø­Ø°Ù ØªØ¹Ø±ÙŠÙØ§Øª @keyframes fadeIn Ùˆ slideUp Ø§Ù„Ù…ÙƒØ±Ø±Ø© Ù‡Ù†Ø§ */
 .animate-fade-in {
     animation: fadeIn 0.8s ease-out forwards;
 }
