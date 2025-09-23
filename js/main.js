@@ -1,50 +1,37 @@
-// Add JavaScript functionality for interactivity
-document.addEventListener('DOMContentLoaded', function () {
-    // View options toggle
-    const viewOptions = document.querySelectorAll('.view-option');
-    viewOptions.forEach(option => {
-        option.addEventListener('click', function () {
-            viewOptions.forEach(opt => opt.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
-
-    // Remove filter tags
-    const removeFilters = document.querySelectorAll('.remove-filter');
-    removeFilters.forEach(filter => {
-        filter.addEventListener('click', function () {
-            this.parentElement.remove();
-        });
-    });
-
-    // Apply button for price range
-    const applyBtn = document.querySelector('.apply-btn');
-    if (applyBtn) {
-        applyBtn.addEventListener('click', function () {
-            alert('Filters applied!');
-        });
-    }
-
-    // Show more designers
-    const showMore = document.querySelector('.show-more');
-    if (showMore) {
-        showMore.addEventListener('click', function (e) {
-            e.preventDefault();
-            alert('Showing more designers...');
-        });
-    }
-});
+// =========================
+// Main JavaScript File
+// Consolidated & Optimized Version
+// =========================
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Loading screen hide after animation
-    setTimeout(function () {
-        const loadingScreen = document.querySelector('.loading-screen');
-        if (loadingScreen) {
-            loadingScreen.classList.add('hidden');
-        }
-    }, 3000); // Match the loading bar animation duration
+    console.log('DOM Content Loaded - Starting initialization...');
 
-    // Mobile Menu Toggle
+    // =========================
+    // LOADING SCREEN
+    // =========================
+    const loadingScreen = document.querySelector('.loading-screen');
+    const loadingBar = document.querySelector('.loading-bar');
+
+    if (loadingScreen && loadingBar) {
+        let width = 0;
+        const interval = setInterval(() => {
+            width += 2;
+            loadingBar.style.width = width + '%';
+            if (width >= 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                    }, 500);
+                }, 500);
+            }
+        }, 50);
+    }
+
+    // =========================
+    // MOBILE MENU FUNCTIONALITY
+    // =========================
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mobileMenuClose = document.querySelector('.mobile-menu-close');
     const mobileMenu = document.querySelector('.mobile-menu');
@@ -70,9 +57,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function closeMobileMenu() {
-        mobileMenu.classList.remove('active');
-        mobileMenuOverlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        if (mobileMenu && mobileMenuOverlay) {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+
+            // Reset animations
+            mobileMenuItems.forEach(item => {
+                if (item) {
+                    item.classList.remove('active');
+                }
+            });
+        }
     }
 
     if (mobileMenuToggle) {
@@ -87,7 +83,28 @@ document.addEventListener('DOMContentLoaded', function () {
         mobileMenuOverlay.addEventListener('click', closeMobileMenu);
     }
 
-    // Scroll animations
+    // =========================
+    // HEADER SCROLL EFFECT
+    // =========================
+    const header = document.querySelector('header');
+    if (header) {
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            lastScrollTop = scrollTop;
+        });
+    }
+
+    // =========================
+    // SCROLL ANIMATIONS
+    // =========================
     function checkScroll() {
         const elements = document.querySelectorAll('.slide-up, .product-card');
         const windowHeight = window.innerHeight;
@@ -137,436 +154,101 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', checkScroll);
     checkScroll(); // Check on load
 
-    // Wishlist functionality
-    const heartButtons = document.querySelectorAll('.wishlist-button');
+    // =========================
+    // WISHLIST FUNCTIONALITY
+    // =========================
+    const heartButtons = document.querySelectorAll('.wishlist-button, .product-favorite');
     heartButtons.forEach(button => {
         button.addEventListener('click', function (e) {
             e.preventDefault();
             const icon = this.querySelector('i');
-            if (icon.classList.contains('far')) {
-                icon.classList.remove('far');
-                icon.classList.add('fas');
-                icon.style.color = 'var(--secondary)';
-                this.style.transform = 'scale(1.2)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 300);
+
+            if (icon) {
+                if (icon.classList.contains('far')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    icon.style.color = 'var(--secondary)';
+                    this.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 300);
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    icon.style.color = '';
+                }
             } else {
-                icon.classList.remove('fas');
-                icon.classList.add('far');
-                icon.style.color = '';
+                // Handle buttons without icons
+                this.classList.toggle('liked');
+                if (this.classList.contains('liked')) {
+                    this.innerHTML = '<i class="fas fa-heart"></i>';
+                } else {
+                    this.innerHTML = '<i class="far fa-heart"></i>';
+                }
             }
         });
     });
 
-    // Carousel functionality
+    // =========================
+    // CAROUSEL FUNCTIONALITY
+    // =========================
+
     const prevBtn = document.querySelector('.carousel-nav.prev');
     const nextBtn = document.querySelector('.carousel-nav.next');
     const carouselTrack = document.querySelector('.carousel-track');
-    const carouselItems = document.querySelectorAll('.carousel-item');
+    const carouselItems = document.querySelectorAll('.carousel-card'); // استخدم فقط carousel-card
 
-    if (prevBtn && nextBtn && carouselItems.length > 0) {
+    if (prevBtn && nextBtn && carouselTrack && carouselItems.length > 0) {
         let currentIndex = 0;
-        const itemWidth = carouselItems[0].offsetWidth + 32; // 32px for gap
 
-        prevBtn.addEventListener('click', () => {
-            currentIndex = Math.max(0, currentIndex - 1);
+        function updateCarousel() {
+            const itemWidth = carouselItems[0].offsetWidth + parseInt(getComputedStyle(carouselTrack).gap || 0);
             carouselTrack.scrollTo({
                 left: currentIndex * itemWidth,
                 behavior: 'smooth'
             });
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex--;
+            if (currentIndex < 0) currentIndex = 0; // لا تخرج عن الحد الأدنى
+            updateCarousel();
         });
 
         nextBtn.addEventListener('click', () => {
-            currentIndex = Math.min(carouselItems.length - 1, currentIndex + 1);
-            carouselTrack.scrollTo({
-                left: currentIndex * itemWidth,
-                behavior: 'smooth'
-            });
-        });
-    }
-
-    // Country selector for desktop
-    const desktopCountry = document.querySelector('.desktop-country');
-    if (window.innerWidth >= 768 && desktopCountry) {
-        desktopCountry.style.display = 'block';
-    }
-
-    // Language selector for desktop
-    const desktopLang = document.querySelector('.desktop-lang');
-    if (window.innerWidth >= 768 && desktopLang) {
-        desktopLang.style.display = 'block';
-    }
-
-    // Responsive adjustments
-    window.addEventListener('resize', function () {
-        if (window.innerWidth >= 768) {
-            if (desktopCountry) desktopCountry.style.display = 'block';
-            if (desktopLang) desktopLang.style.display = 'block';
-        } else {
-            if (desktopCountry) desktopCountry.style.display = 'none';
-            if (desktopLang) desktopLang.style.display = 'none';
-        }
-    });
-
-    // Add floating animation to the "JOIN OR LOG IN" button
-    const joinButton = document.querySelector('.cta-button.float');
-    if (joinButton) {
-        joinButton.style.animation = 'float 3s ease-in-out infinite';
-    }
-
-    // Add pulse animation to the hero CTA button
-    const heroCta = document.querySelector('.hero-cta');
-    if (heroCta) {
-        heroCta.style.animation = 'pulse 2s ease-in-out infinite';
-    }
-
-    // Add hover effect to category cards
-    const categoryItems = document.querySelectorAll('.category-item');
-    categoryItems.forEach(item => {
-        item.style.transition = 'all 0.3s ease';
-        item.style.cursor = 'pointer';
-    });
-
-    // Add hover effect to product cards
-    const productCards = document.querySelectorAll('.product-card');
-    productCards.forEach(card => {
-        card.style.transition = 'all 0.3s ease';
-        card.style.cursor = 'pointer';
-    });
-
-    // Add hover effect to highlight items
-    const highlightItems = document.querySelectorAll('.highlight-item');
-    highlightItems.forEach(item => {
-        item.style.transition = 'all 0.3s ease';
-        item.style.cursor = 'pointer';
-    });
-
-    // Add hover effect to sneakers
-    const sneakerCards = document.querySelectorAll('.sneaker-card');
-    sneakerCards.forEach(card => {
-        card.style.transition = 'all 0.3s ease';
-        card.style.cursor = 'pointer';
-    });
-
-    // Add hover effect to the hero image
-    const heroImage = document.querySelector('.hero-image');
-    if (heroImage) {
-        heroImage.style.transition = 'transform 0.5s ease';
-        heroImage.style.cursor = 'pointer';
-    }
-
-    // Add hover effect to the film image
-    const filmImage = document.querySelector('.film-image');
-    if (filmImage) {
-        filmImage.style.transition = 'transform 0.5s ease';
-        filmImage.style.cursor = 'pointer';
-    }
-
-    // Add hover effect to the brand image
-    const brandImage = document.querySelector('.brand-image');
-    if (brandImage) {
-        brandImage.style.transition = 'transform 0.5s ease';
-        brandImage.style.cursor = 'pointer';
-    }
-
-    // Add hover effect to the newsletter button
-    const newsletterButton = document.querySelector('.newsletter-button');
-    if (newsletterButton) {
-        newsletterButton.style.transition = 'all 0.3s ease';
-        newsletterButton.style.cursor = 'pointer';
-    }
-
-    // Add hover effect to the social media icons
-    const socialIcons = document.querySelectorAll('.social-links a');
-    socialIcons.forEach(icon => {
-        icon.style.transition = 'all 0.3s ease';
-        icon.style.cursor = 'pointer';
-    });
-
-    // Add hover effect to the footer links
-    const footerLinks = document.querySelectorAll('.footer-links a');
-    footerLinks.forEach(link => {
-        link.style.transition = 'all 0.3s ease';
-        link.style.cursor = 'pointer';
-    });
-
-    // Add hover effect to the app store buttons
-    const appStoreButtons = document.querySelectorAll('.app-store');
-    appStoreButtons.forEach(button => {
-        button.style.transition = 'all 0.3s ease';
-        button.style.cursor = 'pointer';
-    });
-
-    // Add hover effect to dropdown menus
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-        item.addEventListener('mouseenter', function () {
-            const dropdown = this.querySelector('.dropdown');
-            if (dropdown) {
-                dropdown.style.opacity = '1';
-                dropdown.style.visibility = 'visible';
-                dropdown.style.transform = 'translateY(0)';
-            }
+            currentIndex++;
+            if (currentIndex > carouselItems.length - 1) currentIndex = carouselItems.length - 1; // لا تخرج عن الحد الأقصى
+            updateCarousel();
         });
 
-        item.addEventListener('mouseleave', function () {
-            const dropdown = this.querySelector('.dropdown');
-            if (dropdown) {
-                dropdown.style.opacity = '0';
-                dropdown.style.visibility = 'hidden';
-                dropdown.style.transform = 'translateY(-10px)';
-            }
-        });
-    });
-
-    // Image Modal functionality
-    const modal = document.querySelector('.image-modal');
-    const modalImage = document.getElementById('modal-image');
-    const modalClose = document.querySelector('.modal-close');
-    const modalOverlay = document.querySelector('.modal-overlay');
-    const quickViews = document.querySelectorAll('.quick-view');
-
-    function openModal(imageSrc) {
-        console.log('openModal called with imageSrc:', imageSrc);
-        modalImage.src = imageSrc;
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        // إعادة الحساب عند تغيير حجم الشاشة
+        window.addEventListener('resize', updateCarousel);
     }
 
-    function closeModal() {
-        console.log('closeModal called');
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
 
-    quickViews.forEach(quickView => {
-        quickView.addEventListener('click', function (e) {
-            console.log('quickView clicked');
-            e.preventDefault();
-            e.stopPropagation();
-            const productCard = this.closest('.product-card');
-            const productImage = productCard.querySelector('.product-image');
-            if (productImage) {
-                openModal(productImage.src);
-            }
-        });
-    });
-
-    if (modalClose) {
-        modalClose.addEventListener('click', closeModal);
-    }
-
-    if (modalOverlay) {
-        modalOverlay.addEventListener('click', closeModal);
-    }
-
-    // Close modal on Escape key
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
-        }
-    });
-});
-
-const buttons = document.querySelectorAll('.view-switcher button');
-const productGrid = document.querySelector('.product-grid');
-
-buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const cols = btn.getAttribute('data-cols');
-        if (productGrid) {
-            productGrid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-        }
-    });
-});
-
-// Merged code from new.js - Image Modal Functionality
-const quickViewBtns = document.querySelectorAll(".quick-view");
-const modal = document.getElementById("image-modal");
-const modalImg = document.getElementById("modal-image");
-const closeBtn = document.querySelector(".modal-close");
-const prevBtn = document.querySelector(".modal-prev");
-const nextBtn = document.querySelector(".modal-next");
-const thumbnailsContainer = document.getElementById("modal-thumbnails");
-
-let currentImages = [];
-let currentIndex = 0;
-
-if (modal && modalImg) {
-    quickViewBtns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            const productCard = btn.closest(".product-card");
-            if (productCard) {
-                currentImages = Array.from(productCard.querySelectorAll(".product-img")).map(img => img.src);
-                currentIndex = 0;
-                showImage(currentIndex);
-                modal.classList.add("active");
-            }
-        });
-    });
-
-    if (closeBtn) {
-        closeBtn.addEventListener("click", () => {
-            modal.classList.remove("active");
-        });
-    }
-
-    const modalOverlay = document.querySelector(".modal-overlay");
-    if (modalOverlay) {
-        modalOverlay.addEventListener("click", () => {
-            modal.classList.remove("active");
-        });
-    }
-
-    if (prevBtn) {
-        prevBtn.addEventListener("click", () => {
-            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-            showImage(currentIndex);
-        });
-    }
-
-    if (nextBtn) {
-        nextBtn.addEventListener("click", () => {
-            currentIndex = (currentIndex + 1) % currentImages.length;
-            showImage(currentIndex);
-        });
-    }
-
-    function showImage(index) {
-        if (modalImg && thumbnailsContainer) {
-            modalImg.src = currentImages[index];
-            thumbnailsContainer.innerHTML = "";
-            currentImages.forEach((src, i) => {
-                const thumb = document.createElement("img");
-                thumb.src = src;
-                if (i === index) thumb.classList.add("active");
-                thumb.addEventListener("click", () => {
-                    currentIndex = i;
-                    showImage(currentIndex);
-                });
-                thumbnailsContainer.appendChild(thumb);
-            });
-        }
-    }
-}
-
-// Additional functionality from new.js
-document.addEventListener('DOMContentLoaded', function () {
-    // Loading screen animation
-    const loadingScreen = document.querySelector('.loading-screen');
-    const loadingBar = document.querySelector('.loading-bar');
-
-    let width = 0;
-    const interval = setInterval(() => {
-        if (width >= 100) {
-            clearInterval(interval);
-            setTimeout(() => {
-                loadingScreen.style.opacity = '0';
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                }, 500);
-            }, 500);
-        } else {
-            width += 2;
-            loadingBar.style.width = width + '%';
-        }
-    }, 50);
-
-    // Mobile menu toggle (enhanced)
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileMenuClose = document.querySelector('.mobile-menu-close');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
-
-    if (mobileMenuToggle && mobileMenu && mobileMenuOverlay) {
-        mobileMenuToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            mobileMenuOverlay.classList.add('active');
-
-            // Animate menu items
-            const menuItems = document.querySelectorAll('.stagger-animation');
-            menuItems.forEach((item, index) => {
-                setTimeout(() => {
-                    item.classList.add('active');
-                }, index * 50);
-            });
-        });
-    }
-
-    if (mobileMenuClose && mobileMenu && mobileMenuOverlay) {
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            mobileMenuOverlay.classList.remove('active');
-
-            // Reset animation
-            const menuItems = document.querySelectorAll('.stagger-animation');
-            menuItems.forEach(item => {
-                item.classList.remove('active');
-            });
-        });
-    }
-
-    if (mobileMenuOverlay) {
-        mobileMenuOverlay.addEventListener('click', () => {
-            if (mobileMenu) mobileMenu.classList.remove('active');
-            mobileMenuOverlay.classList.remove('active');
-
-            // Reset animation
-            const menuItems = document.querySelectorAll('.stagger-animation');
-            menuItems.forEach(item => {
-                item.classList.remove('active');
-            });
-        });
-    }
-
-    // Header scroll effect
-    const header = document.querySelector('header');
-    let lastScrollTop = 0;
-
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollTop > 20) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-
-        lastScrollTop = scrollTop;
-    });
-
-    // Favorite button toggle
-    const favoriteButtons = document.querySelectorAll('.product-favorite');
-    favoriteButtons.forEach(button => {
-        button.addEventListener('click', function (e) {
-            e.preventDefault();
-            this.classList.toggle('liked');
-            if (this.classList.contains('liked')) {
-                this.innerHTML = '<i class="fas fa-heart"></i>';
-            } else {
-                this.innerHTML = '<i class="far fa-heart"></i>';
-            }
-        });
-    });
-
-    // Color dot selection
-    const colorDots = document.querySelectorAll('.color-dot');
-    colorDots.forEach(dot => {
-        dot.addEventListener('click', function () {
-            // Remove active class from siblings
-            const siblings = this.parentElement.querySelectorAll('.color-dot');
-            siblings.forEach(sibling => {
-                sibling.classList.remove('active');
-            });
-            // Add active class to clicked dot
+    // =========================
+    // VIEW OPTIONS TOGGLE
+    // =========================
+    const viewOptions = document.querySelectorAll('.view-option');
+    viewOptions.forEach(option => {
+        option.addEventListener('click', function () {
+            viewOptions.forEach(opt => opt.classList.remove('active'));
             this.classList.add('active');
         });
     });
 
-    // Apply button animation
+    // =========================
+    // FILTER FUNCTIONALITY
+    // =========================
+    // Remove filter tags
+    const removeFilters = document.querySelectorAll('.remove-filter');
+    removeFilters.forEach(filter => {
+        filter.addEventListener('click', function () {
+            this.parentElement.remove();
+        });
+    });
+
+    // Apply button for price range
     const applyBtn = document.querySelector('.apply-btn');
     if (applyBtn) {
         applyBtn.addEventListener('click', function () {
@@ -585,43 +267,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 800);
         });
     }
-
-    // Product card hover effect enhancement
-    const productCards = document.querySelectorAll('.product-card');
-    productCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            const image = card.querySelector('.product-img');
-            const imageAlt = card.querySelector('.product-img-alt');
-
-            image.style.opacity = '0';
-            imageAlt.style.opacity = '1';
-        });
-
-        card.addEventListener('mouseleave', () => {
-            const image = card.querySelector('.product-image');
-            const imageAlt = card.querySelector('.product-image-alt');
-            image.style.opacity = '1';
-            imageAlt.style.opacity = '0';
-        });
-    });
-
-    // Filter section collapse/expand
-    const filterTitles = document.querySelectorAll('.filter-title');
-    filterTitles.forEach(title => {
-        title.addEventListener('click', function () {
-            const content = this.nextElementSibling;
-            const icon = this.querySelector('.collapse-icon');
-
-            content.classList.toggle('collapsed');
-            icon.classList.toggle('collapsed');
-
-            if (content.classList.contains('collapsed')) {
-                content.style.maxHeight = '0';
-            } else {
-                content.style.maxHeight = content.scrollHeight + 'px';
-            }
-        });
-    });
 
     // Clear all filters
     const clearFiltersBtn = document.querySelector('.clear-filters');
@@ -645,6 +290,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Filter section collapse/expand
+    const filterTitles = document.querySelectorAll('.filter-title');
+    filterTitles.forEach(title => {
+        title.addEventListener('click', function () {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('.collapse-icon');
+
+            content.classList.toggle('collapsed');
+            icon.classList.toggle('collapsed');
+
+            if (content.classList.contains('collapsed')) {
+                content.style.maxHeight = '0';
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        });
+    });
+
     // Mobile filter button
     const mobileFilterBtn = document.querySelector('.mobile-filter-btn');
     const filterSidebar = document.querySelector('.filter-sidebar');
@@ -662,4 +325,367 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // =========================
+    // DESKTOP SELECTORS
+    // =========================
+    const desktopCountry = document.querySelector('.desktop-country');
+    if (window.innerWidth >= 768 && desktopCountry) {
+        desktopCountry.style.display = 'block';
+    }
+
+    const desktopLang = document.querySelector('.desktop-lang');
+    if (window.innerWidth >= 768 && desktopLang) {
+        desktopLang.style.display = 'block';
+    }
+
+    // Responsive adjustments
+    window.addEventListener('resize', function () {
+        if (window.innerWidth >= 768) {
+            if (desktopCountry) desktopCountry.style.display = 'block';
+            if (desktopLang) desktopLang.style.display = 'block';
+        } else {
+            if (desktopCountry) desktopCountry.style.display = 'none';
+            if (desktopLang) desktopLang.style.display = 'none';
+        }
+    });
+
+    // =========================
+    // ANIMATIONS & EFFECTS
+    // =========================
+    // Add floating animation to the "JOIN OR LOG IN" button
+    const joinButton = document.querySelector('.cta-button.float');
+    if (joinButton) {
+        joinButton.style.animation = 'float 3s ease-in-out infinite';
+    }
+
+    // Add pulse animation to the hero CTA button
+    const heroCta = document.querySelector('.hero-cta');
+    if (heroCta) {
+        heroCta.style.animation = 'pulse 2s ease-in-out infinite';
+    }
+
+    // Add hover effects to various elements
+    const categoryItems = document.querySelectorAll('.category-item');
+    categoryItems.forEach(item => {
+        item.style.transition = 'all 0.3s ease';
+        item.style.cursor = 'pointer';
+    });
+
+    const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach(card => {
+        card.style.transition = 'all 0.3s ease';
+        card.style.cursor = 'pointer';
+    });
+
+    const highlightItems = document.querySelectorAll('.highlight-item');
+    highlightItems.forEach(item => {
+        item.style.transition = 'all 0.3s ease';
+        item.style.cursor = 'pointer';
+    });
+
+    const sneakerCards = document.querySelectorAll('.sneaker-card');
+    sneakerCards.forEach(card => {
+        card.style.transition = 'all 0.3s ease';
+        card.style.cursor = 'pointer';
+    });
+
+    // Add hover effects to images
+    const heroImage = document.querySelector('.hero-image');
+    if (heroImage) {
+        heroImage.style.transition = 'transform 0.5s ease';
+        heroImage.style.cursor = 'pointer';
+    }
+
+    const filmImage = document.querySelector('.film-image');
+    if (filmImage) {
+        filmImage.style.transition = 'transform 0.5s ease';
+        filmImage.style.cursor = 'pointer';
+    }
+
+    const brandImage = document.querySelector('.brand-image');
+    if (brandImage) {
+        brandImage.style.transition = 'transform 0.5s ease';
+        brandImage.style.cursor = 'pointer';
+    }
+
+    // Add hover effects to buttons and links
+    const newsletterButton = document.querySelector('.newsletter-button');
+    if (newsletterButton) {
+        newsletterButton.style.transition = 'all 0.3s ease';
+        newsletterButton.style.cursor = 'pointer';
+    }
+
+    const socialIcons = document.querySelectorAll('.social-links a');
+    socialIcons.forEach(icon => {
+        icon.style.transition = 'all 0.3s ease';
+        icon.style.cursor = 'pointer';
+    });
+
+    const footerLinks = document.querySelectorAll('.footer-links a');
+    footerLinks.forEach(link => {
+        link.style.transition = 'all 0.3s ease';
+        link.style.cursor = 'pointer';
+    });
+
+    const appStoreButtons = document.querySelectorAll('.app-store');
+    appStoreButtons.forEach(button => {
+        button.style.transition = 'all 0.3s ease';
+        button.style.cursor = 'pointer';
+    });
+
+    // =========================
+    // DROPDOWN MENUS
+    // =========================
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        item.addEventListener('mouseenter', function () {
+            const dropdown = this.querySelector('.dropdown');
+            if (dropdown) {
+                dropdown.style.opacity = '1';
+                dropdown.style.visibility = 'visible';
+                dropdown.style.transform = 'translateY(0)';
+            }
+        });
+
+        item.addEventListener('mouseleave', function () {
+            const dropdown = this.querySelector('.dropdown');
+            if (dropdown) {
+                dropdown.style.opacity = '0';
+                dropdown.style.visibility = 'hidden';
+                dropdown.style.transform = 'translateY(-10px)';
+            }
+        });
+    });
+
+    // =========================
+    // IMAGE MODAL FUNCTIONALITY
+    // =========================
+    const modal = document.querySelector('.image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalClose = document.querySelector('.modal-close');
+    const modalOverlay = document.querySelector('.modal-overlay');
+    const modalThumbnails = document.getElementById('modal-thumbnails');
+    const quickViews = document.querySelectorAll('.quick-view');
+
+    let currentImages = [];
+    let currentIndex = 0;
+
+    function openModal(imageSrc, images = []) {
+        if (modal && modalImage) {
+            console.log('openModal called with imageSrc:', imageSrc);
+            currentImages = images.length > 0 ? images : [imageSrc];
+            currentIndex = images.length > 0 ? images.indexOf(imageSrc) : 0;
+
+            if (currentIndex === -1) currentIndex = 0;
+
+            showImage(currentIndex);
+            createThumbnails();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeModal() {
+        if (modal) {
+            console.log('closeModal called');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            // Clear thumbnails
+            if (modalThumbnails) {
+                modalThumbnails.innerHTML = '';
+            }
+        }
+    }
+
+    function showImage(index) {
+        if (modal && modalImage && currentImages[index]) {
+            modalImage.src = currentImages[index];
+            updateActiveThumbnail(index);
+        }
+    }
+
+    function createThumbnails() {
+        if (!modalThumbnails) return;
+
+        modalThumbnails.innerHTML = '';
+
+        currentImages.forEach((imageSrc, index) => {
+            const thumbnail = document.createElement('div');
+            thumbnail.className = 'modal-thumbnail';
+            thumbnail.innerHTML = `<img src="${imageSrc}" alt="Thumbnail ${index + 1}" loading="lazy">`;
+
+            thumbnail.addEventListener('click', () => {
+                currentIndex = index;
+                showImage(index);
+            });
+
+            modalThumbnails.appendChild(thumbnail);
+        });
+
+        updateActiveThumbnail(currentIndex);
+    }
+
+    function updateActiveThumbnail(activeIndex) {
+        if (!modalThumbnails) return;
+
+        const thumbnails = modalThumbnails.querySelectorAll('.modal-thumbnail');
+        thumbnails.forEach((thumb, index) => {
+            if (index === activeIndex) {
+                thumb.classList.add('active');
+            } else {
+                thumb.classList.remove('active');
+            }
+        });
+    }
+
+    // Quick view buttons
+    quickViews.forEach(quickView => {
+        quickView.addEventListener('click', function (e) {
+            console.log('quickView clicked');
+            e.preventDefault();
+            e.stopPropagation();
+            const productCard = this.closest('.product-card');
+            if (productCard) {
+                const productImages = Array.from(productCard.querySelectorAll('.product-img, .product-image')).map(img => img.src);
+                const mainImage = productCard.querySelector('.product-img, .product-image');
+
+                if (mainImage && mainImage.src) {
+                    openModal(mainImage.src, productImages);
+                }
+            }
+        });
+    });
+
+    // Modal controls
+    if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+    }
+
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', closeModal);
+    }
+
+    // Keyboard controls
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            closeModal();
+        } else if (e.key === 'ArrowLeft' && modal && modal.classList.contains('active')) {
+            e.preventDefault();
+            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+            showImage(currentIndex);
+        } else if (e.key === 'ArrowRight' && modal && modal.classList.contains('active')) {
+            e.preventDefault();
+            currentIndex = (currentIndex + 1) % currentImages.length;
+            showImage(currentIndex);
+        }
+    });
+
+    // Modal navigation buttons
+    const modalPrev = document.querySelector('.modal-prev');
+    const modalNext = document.querySelector('.modal-next');
+
+    if (modalPrev) {
+        modalPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+            showImage(currentIndex);
+        });
+    }
+
+    if (modalNext) {
+        modalNext.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % currentImages.length;
+            showImage(currentIndex);
+        });
+    }
+
+    // =========================
+    // PRODUCT CARD HOVER EFFECTS
+    // =========================
+    productCards.forEach(card => {
+        // Skip hover effects for highlight items and other specific products
+        if (card.closest('.highlight-item') || card.classList.contains('no-hover-bg')) {
+            return;
+        }
+
+        card.addEventListener('mouseenter', () => {
+            const image = card.querySelector('.product-img, .product-image');
+            const imageAlt = card.querySelector('.product-img-alt, .product-image-alt');
+
+            if (image) image.style.opacity = '0';
+            if (imageAlt) imageAlt.style.opacity = '1';
+        });
+
+        card.addEventListener('mouseleave', () => {
+            const image = card.querySelector('.product-image, .product-img');
+            const imageAlt = card.querySelector('.product-image-alt, .product-img-alt');
+            if (image) image.style.opacity = '1';
+            if (imageAlt) imageAlt.style.opacity = '0';
+        });
+    });
+
+    // =========================
+    // HIGHLIGHT ITEM HOVER EFFECTS
+    // =========================
+    highlightItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            const image = item.querySelector('.highlight-image');
+            if (image) {
+                image.style.opacity = '0.7'; // Slight opacity change instead of white background
+            }
+        });
+
+        item.addEventListener('mouseleave', () => {
+            const image = item.querySelector('.highlight-image');
+            if (image) {
+                image.style.opacity = '1'; // Restore full opacity
+            }
+        });
+    });
+
+    // =========================
+    // COLOR DOT SELECTION
+    // =========================
+    const colorDots = document.querySelectorAll('.color-dot');
+    colorDots.forEach(dot => {
+        dot.addEventListener('click', function () {
+            // Remove active class from siblings
+            const siblings = this.parentElement.querySelectorAll('.color-dot');
+            siblings.forEach(sibling => {
+                sibling.classList.remove('active');
+            });
+            // Add active class to clicked dot
+            this.classList.add('active');
+        });
+    });
+
+    // =========================
+    // VIEW SWITCHER
+    // =========================
+    const buttons = document.querySelectorAll('.view-switcher button');
+    const productGrid = document.querySelector('.product-grid');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const cols = btn.getAttribute('data-cols');
+            if (productGrid) {
+                productGrid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+            }
+        });
+    });
+
+    // =========================
+    // SHOW MORE DESIGNERS
+    // =========================
+    const showMore = document.querySelector('.show-more');
+    if (showMore) {
+        showMore.addEventListener('click', function (e) {
+            e.preventDefault();
+            alert('Showing more designers...');
+        });
+    }
+
+    console.log('DOM Content Loaded - All functionality initialized successfully!');
 });
